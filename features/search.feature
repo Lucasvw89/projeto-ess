@@ -42,3 +42,5 @@ Scenario: Busca falhou (Serviço)
         Given o filme "asdfghjkl" não esta cadastrado no site
         When o usuário pesquisa “asdfghjkl”
         Then o servidor retorna uma mensagem de erro
+
+Scenario: Busca bem sucedida (Serviço)
