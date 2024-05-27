@@ -47,3 +47,5 @@ Scenario: Busca falhou (Serviço)
 Scenario: Busca bem sucedida (Serviço)
         Given o filme "Os Vingadores" está cadastrado no site
         When o usuário pesquisa “Os Vingadores”
+        Then o servidor retorna uma mensagem de êxito
+        And os resultados são exibidos
