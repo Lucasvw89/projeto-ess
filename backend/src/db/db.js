@@ -30,7 +30,7 @@ module.exports = [
       posts: [
         {
           post_id: uuidv4(),
-          user_id: 1,
+          user_id: "Elian Rodriguez",
           filme_id: filme1_id,
           nota: 0.5,
           review: "Horrivel!",
@@ -38,7 +38,7 @@ module.exports = [
         },
         {
           post_id: uuidv4(),
-          user_id: 2,
+          user_id: "Yumi Kinoshita",
           filme_id: filme1_id,
           nota: 5,
           review: "Absolute Cinema!",
@@ -112,7 +112,5 @@ module.exports = [
        sinopse: "Barbie parte para o mundo humano em busca da verdadeira felicidade.",
        poster: "https://image.tmdb.org/t/p/original/uUbdc9TMwbazp1zCNzGtXoBHhUa.jpg" 
     }
-
-
   ];
   
