@@ -3,6 +3,6 @@ const router = express.Router();
 const page_controller = require("../controllers/pages")
 
 
-router.get("/", page_controller.showpage);
+router.get("/:filme_id", page_controller.showpage);
 
 module.exports = router;
