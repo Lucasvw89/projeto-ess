@@ -1,9 +1,9 @@
 import api from "../index";
 
-export default async function CreatePost(userd_id, filme_id, nota, review) {
+export default async function CreatePost(user_id, filme_id, nota, review) {
   try {
     const data = {
-        "user_id": userd_id,
+        "user_id": user_id,
         "filme_id": filme_id,
         "nota": nota,
         "review": review,
