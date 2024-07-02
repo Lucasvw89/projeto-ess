@@ -41,7 +41,6 @@ const FilmDetail = () => {
         <h1 style={styles.title}>Detalhes do filme com id: {id}</h1>
         <p style={styles.synopsis}>{page.sinopse}</p>
         <div style={styles.detail}>
-          {/* Display additional film details here */}
           <p>Diretor: {page.diretor}</p>
           <p>Ano: {page.ano}</p>
           <p>Genero: {page.genero}</p>
