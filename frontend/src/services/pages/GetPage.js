@@ -1,10 +1,10 @@
-import api from "../index";
+import api from '../index'
 
 export default async function GetPage(id) {
   try {
-    const response = await api.get(`/pages/${id}`);
-    return response;
+    const response = await api.get(`/pages/${id}`)
+    return response
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }

@@ -1,29 +1,28 @@
-import React from 'react';
-import Button from '@mui/material/Button';
-import { useNavigate } from "react-router-dom";
-import styles from './styles'; // Import the styles from the same directory
+import React from 'react'
+import Button from '@mui/material/Button'
+import { useNavigate } from 'react-router-dom'
+import styles from './styles' // Import the styles from the same directory
 
 const Login = () => {
-    const navigate = useNavigate();
+  const navigate = useNavigate()
 
-    const handleLogin = () => {
-        // Lógica de autenticação aqui
+  const handleLogin = () => {
+    // Lógica de autenticação aqui
 
-        // Redirecionar para a rota de dashboard
-        navigate('/dashboard');
-    };
+    // Redirecionar para a rota de dashboard
+    navigate('/dashboard')
+  }
 
-    return (
-        <div style={styles.container}>
-            <div>
-                <h1 style={styles.title}>Login</h1>
-                <Button variant="contained" color="primary" onClick={handleLogin}>
-                    Login
-                </Button>
-            </div>
-        </div>
-    );
-};
+  return (
+    <div style={styles.container}>
+      <div>
+        <h1 style={styles.title}>Login</h1>
+        <Button variant='contained' color='primary' onClick={handleLogin}>
+          Login
+        </Button>
+      </div>
+    </div>
+  )
+}
 
-export default Login;
-
+export default Login

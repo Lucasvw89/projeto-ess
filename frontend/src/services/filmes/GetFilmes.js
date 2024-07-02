@@ -1,10 +1,10 @@
-import api from "../index";
+import api from '../index'
 
 export default async function GetFilmes() {
   try {
-    const response = await api.get("/");
-    return response;
+    const response = await api.get('/')
+    return response
   } catch (error) {
-    console.error(error);
+    console.error(error)
   }
 }
