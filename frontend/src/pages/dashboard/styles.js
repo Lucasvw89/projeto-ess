@@ -1,9 +1,9 @@
 const styles = {
-    container: {
-        display: 'flex',
-        justifyContent: 'center',
-        alignItems: 'center'
-    }
-};
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center'
+  }
+}
 
-export default styles;
+export default styles
