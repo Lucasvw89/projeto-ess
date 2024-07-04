@@ -1,10 +1,10 @@
 import api from '../index'
 
-export default async function UpdatePost(post_id, userd_id, filme_id, nota, review) {
+export default async function UpdatePost(post_id, user_id, filme_id, nota, review) {
   try {
     const data = {
       post_id: post_id,
-      user_id: userd_id,
+      user_id: user_id,
       filme_id: filme_id,
       nota: nota,
       review: review
