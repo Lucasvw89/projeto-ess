@@ -19,7 +19,8 @@ const styles = {
     marginRight: '1.5rem'
   },
   post__header__options: {
-    marginLeft: 'auto'
+    marginLeft: 'auto',
+    cursor: 'pointer'
   },
   post__body__content_review: {
     fontFamily: 'Montserrat',

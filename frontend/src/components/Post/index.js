@@ -1,20 +1,29 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import Comment from '../Comment'
 import styles from './styles'
 import { Rating } from '@mui/material'
-import { HiDotsVertical } from 'react-icons/hi'
 import { PiArrowBendDownLeftFill } from 'react-icons/pi'
 import StarIcon from '@mui/icons-material/Star'
+import SettingsMenu from '../SettingsMenu'
 
-const Post = ({ post }) => {
+const Post = ({ post, user_id, setModalOpen, setIsEditing, setReload }) => {
+  const [nota, setNota] = useState(post.nota)
+
+  useEffect(() => {
+    setNota(post.nota)
+  }, [post.nota])
+
   return (
     <div className='post' style={styles.container}>
       <div style={styles.post__header}>
         <div style={styles.post__header__data}>
           <p style={styles.post__header__data_userID}>{post.user_id}</p>
           <Rating
-            name='half-rating-read'
-            defaultValue={post.nota}
+            name='simple-controlled'
+            value={nota}
+            onChange={(_, value) => {
+              setNota(value)
+            }}
             precision={0.5}
             readOnly
             emptyIcon={<StarIcon style={{ color: '#D9D9D9' }} />}
@@ -22,7 +31,7 @@ const Post = ({ post }) => {
           />
         </div>
         <div style={styles.post__header__options}>
-          <HiDotsVertical />
+          <SettingsMenu post={post} user_id={user_id} setModalOpen={setModalOpen} setIsEditing={setIsEditing} setReload={setReload} />
         </div>
       </div>
       <div style={styles.post__body}>
