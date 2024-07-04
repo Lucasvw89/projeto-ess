@@ -9,7 +9,11 @@ import ModalReview from '../../components/ModalReview'
 
 const FilmDetail = () => {
   const { id } = useParams()
+  const [user_id] = useState('Miguel Oliveira')
   const [page, setPage] = useState([])
+  const [isEditing, setIsEditing] = useState(false)
+  const [reload, setReload] = useState(false)
+  const [editingPostInfo, setEditingPostInfo] = useState([])
   const [openModal, setOpenModal] = useState(false)
 
   useEffect(() => {
@@ -18,10 +22,11 @@ const FilmDetail = () => {
       setPage(response.data)
     }
     fetchData()
-  }, [openModal])
+  }, [openModal, reload])
   // Fetch the film details using the id, or use a state management solution.
 
   const handleOpenModal = () => {
+    setIsEditing(false)
     setOpenModal(true)
   }
 
@@ -33,9 +38,15 @@ const FilmDetail = () => {
           setOpenModal(!openModal)
         }}
         imageUrl={page.poster}
+        user_id={user_id}
         filme_id={id}
         filme_ano={page.ano}
         filme_nome={page.nome}
+        isEditing={isEditing}
+        editingPostInfo={editingPostInfo}
+        setIsEditing={() => {
+          setIsEditing(!isEditing)
+        }}
       />
       <div style={styles.content}>
         <h1 style={styles.title}>Detalhes do filme com id: {id}</h1>
@@ -51,7 +62,24 @@ const FilmDetail = () => {
       </div>
       <div style={styles.forum}>
         <h3 style={styles.forum__title}>FÓRUM:</h3>
-        {page.posts && page.posts.map((post) => <Post key={post.post_id} post={post} />)}
+        {page.posts &&
+          page.posts.map((post) => (
+            <Post
+              key={post.post_id}
+              post={post}
+              user_id={user_id}
+              setModalOpen={() => {
+                setOpenModal(!openModal)
+              }}
+              setIsEditing={() => {
+                setEditingPostInfo(post)
+                setIsEditing(true)
+              }}
+              setReload={() => {
+                setReload(!reload)
+              }}
+            />
+          ))}
       </div>
     </div>
   )
