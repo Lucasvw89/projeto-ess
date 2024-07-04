@@ -1,26 +1,63 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Rating } from '@mui/material'
 import styles from './styles'
 import CreatePost from '../../services/posts/CreatePost'
+import UpdatePost from '../../services/posts/UpdatePost'
 import { IoCloseSharp } from 'react-icons/io5'
 import StarIcon from '@mui/icons-material/Star'
 
-const ModalReview = ({ isOpen, setModalOpen, imageUrl, filme_id, filme_nome, filme_ano }) => {
+const ModalReview = ({
+  isOpen,
+  setModalOpen,
+  imageUrl,
+  user_id,
+  filme_id,
+  filme_nome,
+  filme_ano,
+  isEditing,
+  setIsEditing,
+  editingPostInfo
+}) => {
   const [postText, setPostText] = useState('')
+  const [errorNota, setErrorNota] = useState(false)
   const [rating, setRating] = useState()
 
   const handleCreatePost = async () => {
-    const response = await CreatePost('Miguel Oliveira', filme_id, rating, postText)
-    if (response.status === 201) {
-      setPostText('')
-      setRating()
-      setModalOpen()
-    } else if (response === 'Nota is required.') {
-      alert('Nota é obrigatória')
+    if (isEditing) {
+      const response = await UpdatePost(editingPostInfo.post_id, editingPostInfo.user_id, editingPostInfo.filme_id, rating, postText)
+      if (response.status === 200) {
+        setPostText('')
+        setRating()
+        setIsEditing()
+        setModalOpen()
+      } else if (response === 'Nota is required.') {
+        setErrorNota(true)
+      } else {
+        alert('Erro ao enviar review')
+      }
     } else {
-      alert('Erro ao enviar review')
+      const response = await CreatePost(user_id, filme_id, rating, postText)
+      if (response.status === 201) {
+        setPostText('')
+        setRating()
+        setModalOpen()
+      } else if (response === 'Nota is required.') {
+        setErrorNota(true)
+      } else {
+        alert('Erro ao enviar review')
+      }
     }
   }
+
+  useEffect(() => {
+    setErrorNota(false)
+    setPostText('')
+    setRating(0)
+    if (isEditing) {
+      setPostText(editingPostInfo.review)
+      setRating(editingPostInfo.nota)
+    }
+  }, [isOpen])
 
   if (isOpen) {
     return (
@@ -54,6 +91,7 @@ const ModalReview = ({ isOpen, setModalOpen, imageUrl, filme_id, filme_nome, fil
                   <div style={styles.form__bottom}>
                     <div style={styles.form__bottom__nota}>
                       <p style={styles.form__bottom__nota_label}>Nota</p>
+                      {errorNota && <p style={styles.form__bottom__nota_error}>Nota é obrigatória</p>}
                       <Rating
                         name='simple-controlled'
                         value={rating}

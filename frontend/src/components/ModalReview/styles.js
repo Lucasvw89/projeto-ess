@@ -102,6 +102,12 @@ const styles = {
     fontWeight: '700',
     marginBottom: '0.8rem'
   },
+  form__bottom__nota_error: {
+    fontFamily: 'Be Vietnam Pro',
+    fontSize: '1rem',
+    color: 'red',
+    marginBottom: '0.2rem'
+  },
   button: {
     cursor: 'pointer',
     backgroundColor: '#FF182C',
