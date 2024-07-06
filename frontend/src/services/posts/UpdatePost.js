@@ -12,6 +12,10 @@ export default async function UpdatePost(post_id, user_id, filme_id, nota, revie
     const response = await api.put('/posts', data)
     return response
   } catch (error) {
-    console.error(error)
+    if (error.response && error.response.data && error.response.data.error === 'Nota is required.') {
+      return 'Nota is required.'
+    } else {
+      return 'Error'
+    }
   }
 }

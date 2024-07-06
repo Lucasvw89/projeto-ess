@@ -25,8 +25,8 @@ export default function SettingsMenu({ post, user_id, setModalOpen, setIsEditing
     }
   }
   const handleEditar = () => {
-    setAnchorEl(null)
     setIsEditing()
+    setAnchorEl(null)
     setModalOpen()
   }
 
