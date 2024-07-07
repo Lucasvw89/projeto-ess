@@ -1,12 +1,17 @@
 const Post = require("../models/post");
 const movies = require("../db/db");
 
+const validateNota = (nota) => {
+  if (nota === undefined || nota === 0 || nota === null) {
+    throw new Error("Nota is required.");
+  }
+};
+
 exports.createPost = (req, res) => {
   try {
     const { user_id, filme_id, nota, review } = req.body;
-    if (nota === undefined || nota === 0 || nota === null) {
-      return res.status(400).json({ error: "Nota is required." });
-    }
+    validateNota(nota);
+
     const newPost = new Post(user_id, filme_id, nota, review);
     if (!newPost.validateNota()) {
       return res.status(400).json({ error: "Nota must be between 0 and 5." });
@@ -57,9 +62,7 @@ exports.updatePost = (req, res) => {
   try {
     const { post_id, user_id, filme_id, nota, review } = req.body;
 
-    if (nota === undefined || nota === 0 || nota === null) {
-      return res.status(400).json({ error: "Nota is required." });
-    }
+    validateNota(nota);
 
     // Find the movie by filme_id
     const movie = movies.find((m) => m.filme_id === filme_id);
