@@ -135,7 +135,6 @@ defineFeature(content_feature, (test) => {
                 "ano": ano,
                 "duracao": duracao,
                 "sinopse": sinopse,
-                "diretor": diretor,
                 "genero": genero
             }
 
@@ -154,7 +153,40 @@ defineFeature(content_feature, (test) => {
         });
     });
 
-    
+    test('Cadastro de Filme com informações incompletas', ({ given, when, then }) => {
+        movie_data = {};
+        given('o banco de dados requer os dados obrigatórios nome, gênero, ano, diretor, duracao, sinopse e poster para o cadastro.', () => {
+
+        });
+
+        when(/^o administrador envia uma requisição POST para a rota \/movie com os dados "(.*)", "(.*)", (.*), "(.*)", "(.*)" e "(.*)" respectivamente$/, async(nome, genero, ano, duracao, sinopse, poster) => {
+            const data = {
+                "poster": poster,
+                "nome": nome,
+                "ano": ano,
+                "duracao": duracao,
+                "sinopse": sinopse,
+                "genero": genero
+            }
+            movie_data = data;
+        });
+
+        then(/^O sistema retorna o status code (\d+) e a mensagem de erro "(.*)".$/, async(status, message) => {
+            console.log("ENTROU")
+            try{
+                console.log("Deu bom")
+                const response = await axios.post('http://localhost:3000/movie', movie_data);
+            }
+            catch (error) {
+                console.log("deu ruim")
+                expect(error.response.status).toBe(Number(status));
+                console.log(error.response.data);
+                expect(error.response.data).toMatchObject({"error": message});
+
+            }
+        });
+        });
+    });
 
     // test('Cadastro de Filme com informações incompletas', ({ given, when, and, then }) => {
     //     given(/^Estou na página "(.*)" e desejo adicionar um filme$/, (arg0) => {
@@ -188,6 +220,5 @@ defineFeature(content_feature, (test) => {
     //     });
     // });
 
-});
 
 

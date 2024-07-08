@@ -29,8 +29,7 @@ Scenario: Cadastro de Filme que já existe
     When o administrador envia uma requisição POST para a rota /movie com os dados "The Lighthouse", "Horror", "2019", "Robert Eggers", "1h49m", "Two lighthouse keepers try to maintain their sanity while living on a remote and mysterious New England island in the 1890s." e "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg" respectivamente
     Then O sistema retorna o status code 409 e a mensagem de erro "Filme já cadastrado no sistema".
 
-# Scenario: Cadastro de Filme com informações incompletas
-#     Given Estou na página "Feed" e desejo adicionar um filme
-#     When Eu pressiono o botão "adicionar mídia"
-#     And Preencho apenas as informações "ano", "duracao", "genero", "sinopse" e "poster" com os dados "1968", "2h29", "Science Fiction", "Humanity finds a mysterious object buried beneath the lunar surface and sets off to find its origins with the help of HAL 9000, the world's most advanced super computer." e "https://image.tmdb.org/t/p/w600_and_h900_bestv2/ve72VxNqjGM69Uky4WTo2bK6rfq.jpg" respectivamente
-#     Then Aparece uma mensagem de erro "Cadastro Incompleto" e o usuário permanece na página "Feed"
+Scenario: Cadastro de Filme com informações incompletas
+    Given o banco de dados requer os dados obrigatórios nome, gênero, ano, diretor, duracao, sinopse e poster para o cadastro.
+    When o administrador envia uma requisição POST para a rota /movie com os dados "Mad Max: Fury Road", "Action", "2015", "nulo", "2h00m", "In a post-apocalyptic wasteland, a woman rebels against a tyrannical ruler in search for her homeland with the aid of a group of female prisoners, a psychotic worshipper and a drifter named Max." e "https://www.wallpaperflare.com/mad-max-fury-road-movie-cover-mad-max-fury-road-movies-car-wallpaper-purbn" respectivamente
+    Then O sistema retorna o status code 400 e a mensagem de erro "Campos não preenchidos".
