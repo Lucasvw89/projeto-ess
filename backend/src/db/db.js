@@ -111,6 +111,18 @@ module.exports = [
        genero: "2",
        sinopse: "Barbie parte para o mundo humano em busca da verdadeira felicidade.",
        poster: "https://image.tmdb.org/t/p/original/uUbdc9TMwbazp1zCNzGtXoBHhUa.jpg" 
+    },
+    {
+      filme_id: "a7b8c9d0-1e2f-11ef-3a4b-5c6d7e8f9a0b",
+      poster: "https://example.com/poster3.jpg",
+      nome: "Enrolados",
+      ano: 2010,
+      duracao: "1h40",
+      sinopse: "The magically long-haired Rapunzel has spent her entire life in a tower, but now that a runaway thief has stumbled upon her, she is about to discover the world for the first time, and who she really is.",
+      diretor: "Nathan Greno",
+      plataformas: [],
+      genero: "Animation",
+      posts: []
     }
   ];
   

@@ -21,6 +21,7 @@
   },
   "devDependencies": {
     "jest": "^29.7.0",
-    "jest-cucumber": "^4.4.0"
+    "jest-cucumber": "^4.4.0",
+    "nodemon": "^3.1.4"
   }
 }

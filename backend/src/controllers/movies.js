@@ -1,39 +1,62 @@
 const Movie = require('../models/movies');
 const movies = require('../db/db');
 
+
+exports.getMovie = (req, res) => {
+  try {
+    const { filme_id } = req.body;
+    
+    const movieIndex = movies.findIndex(movie => movie.filme_id === filme_id);
+
+    if (movieIndex === -1) {
+      return res.status(404).json({ error: 'Filme não encontrado' });
+    }
+
+    const movie = movies[movieIndex];
+    res.status(200).json( movie );
+    
+  } catch (error) {
+    console.error(error);
+    return res.status(500).json({ error: 'Erro ao remover o filme' });
+  }
+};
+
 exports.addMovie = (req, res) => {
   try {
-    const { nome, ano, duracao, genero, sinopse, poster } = req.body;
+    const { poster, nome, ano, duracao, sinopse, diretor, genero } = req.body;
 
-    if (!nome) {
-      return res.status(400).json({ error: 'O nome não foi preenchido' });
-    }
-    if (!ano) {
-      return res.status(400).json({ error: 'O ano não foi preenchido' });
-    }
-    if (!duracao) {
-      return res.status(400).json({ error: 'A duração não foi preenchida' });
-    }
-    if (!genero) {
-      return res.status(400).json({ error: 'O genero não foi preenchido' });
-    }
-    if (!sinopse) {
-      return res.status(400).json({ error: 'A sinopse não foi preenchida' });
-    }
     if (!poster) {
       return res.status(400).json({ error: 'O poster não foi adicionado' });
     }
+    if (!nome) {
+      return res.status(400).json({ error: 'O campo nome não foi preenchido' });
+    }
+    if (!ano) {
+      return res.status(400).json({ error: 'O campo ano não foi preenchido' });
+    }
+    if (!duracao) {
+      return res.status(400).json({ error: 'O campo duração não foi preenchido' });
+    }
+    if (!sinopse) {
+      return res.status(400).json({ error: 'O campo sinopse não foi preenchido' });
+    }
+    if (!diretor) {
+      return res.status(400).json({ error: 'O campo diretor não foi preenchido' });
+    }
+    if (!genero) {
+      return res.status(400).json({ error: 'O campo genero não foi preenchido' });
+    }
 
     const existingNome = movies.find(movie => movie.nome === nome);
-    const existingPoster = movies.find(movie => movie.poster === poster);
-    if (existingNome || existingPoster) {
-      return res.status(409).json({ error: 'Um filme com esse nome ou poster já existe' });
+
+    if (existingNome) {
+      return res.status(409).json({ error: 'Um filme com esse nome já existe' });
     }
     
-    const newMovie = new Movie(nome, ano, duracao, genero, sinopse, poster);
+    const newMovie = new Movie(poster, nome, ano, duracao, sinopse, diretor, genero);
 
     movies.push(newMovie);
-    res.status(201).json(newMovie);
+    res.status(201).json({ message: 'Filme Adicionado com Sucesso'});
     
   } catch (error) {
     console.error(error);
@@ -45,6 +68,7 @@ exports.addMovie = (req, res) => {
 exports.delMovie = (req, res) => {
   try {
     const { filme_id } = req.body;
+    console.log("Cheguei aqui")
     
     const movieIndex = movies.findIndex(movie => movie.filme_id === filme_id);
 
@@ -54,7 +78,7 @@ exports.delMovie = (req, res) => {
 
     movies.splice(movieIndex, 1);
     
-    res.status(200).json({ message: 'Filme removido com sucesso' });
+    res.status(200).json({ message: 'Filme Removido com Sucesso' });
     
   } catch (error) {
     console.error(error);
