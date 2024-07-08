@@ -1,5 +1,8 @@
 const Movie = require('../models/movies');
 const movies = require('../db/db');
+const { v5: uuidv5 } = require('uuid');
+
+const MY_NAMESPACE = 'd7b4380e-75f9-4b83-a67b-867540268a50';
 
 
 exports.getMovie = (req, res) => {
@@ -25,6 +28,8 @@ exports.addMovie = (req, res) => {
   try {
     const { poster, nome, ano, duracao, sinopse, diretor, genero } = req.body;
 
+    filme_id = uuidv5(poster + nome + ano + duracao + sinopse + diretor + genero, MY_NAMESPACE);
+
     if (!poster) {
       return res.status(400).json({ error: 'O poster não foi adicionado' });
     }
@@ -47,13 +52,13 @@ exports.addMovie = (req, res) => {
       return res.status(400).json({ error: 'O campo genero não foi preenchido' });
     }
 
-    const existingNome = movies.find(movie => movie.nome === nome);
+    const existingID = movies.find(movie => movie.filme_id === filme_id);
 
-    if (existingNome) {
-      return res.status(409).json({ error: 'Um filme com esse nome já existe' });
+    if (existingID) {
+      return res.status(409).json({ error: 'Filme já cadastrado no sistema' });
     }
     
-    const newMovie = new Movie(poster, nome, ano, duracao, sinopse, diretor, genero);
+    const newMovie = new Movie(filme_id, poster, nome, ano, duracao, sinopse, diretor, genero);
 
     movies.push(newMovie);
     res.status(201).json({ message: 'Filme Adicionado com Sucesso'});
@@ -68,7 +73,6 @@ exports.addMovie = (req, res) => {
 exports.delMovie = (req, res) => {
   try {
     const { filme_id } = req.body;
-    console.log("Cheguei aqui")
     
     const movieIndex = movies.findIndex(movie => movie.filme_id === filme_id);
 
