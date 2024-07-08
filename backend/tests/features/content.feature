@@ -16,6 +16,14 @@ Scenario: Remoção de Filme com Sucesso
     Then o sistema retorna o status code 200 e a resposta deve conter a mensagem "Filme Removido com Sucesso"
     And o filme "Enrolados" não está mais disponível no banco de dados
 
+Scenario: Edição das Informações do Filme com sucesso
+
+    Given o banco de dados requer um ou mais dos seguintes dados para a edição: filme_id, nome, ano, duracao, genero, sinopse, poster, plataformas.
+    And o filme "1984" de ID "40028922" está cadastrado no sistema e possui seus campos sinopse e genero como "Placeholder" e "Comédia" respectivamente.
+    When o administrador envia uma requisição PUT para a rota /movie passando o ID "40028922" com os campos sinopse e gênero sendo "1984 is the story of a man questioning the system that keeeps his society afloat" e "Ficcção Científica".
+    Then o sistema retorna o status code 200 e a mensagem "Filme Editado com Sucesso"
+    And Os campos sinopse e genero agora são "1984 is the story of a man questioning the system that keeeps his society afloat" e "Ficcção Científica".
+
 
 # Scenario: Edição das informações do filme
 #     Given Estou na página "Feed" e esejo editar as informações do filme "1984" que está cadastrado no sistema

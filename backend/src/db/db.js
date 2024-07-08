@@ -95,7 +95,7 @@ module.exports = [
       posts: []
     },
     {
-      filme_id: 40028922,
+      filme_id: "40028922",
       poster: "https://image.tmdb.org/t/p/original/iuFNMS8U5cb6xfzi51Dbkovj7vM.jpg",
       nome: "1984",
       ano: 1984,

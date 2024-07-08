@@ -72,6 +72,55 @@ defineFeature(content_feature, (test) => {
         });
     });
    
+    test('Edição das Informações do Filme com sucesso', ({ given, and, when, then }) => {
+
+        filme_id = "";
+
+        given('o banco de dados requer um ou mais dos seguintes dados para a edição: filme_id, nome, ano, duracao, genero, sinopse, poster, plataformas.', () => {
+
+        });
+
+        and(/^o filme "(.*)" de ID "(.*)" está cadastrado no sistema e possui seus campos sinopse e genero como "(.*)" e "(.*)" respectivamente.$/, async(nome, id, sinopse, genero) => {
+            filme_id = id;
+
+            const data = {
+                filme_id: filme_id
+            };
+
+            const response = await axios.get('http://localhost:3000/movie', { data });
+            get_status = response.status;
+            get_message = response.data;
+            expect(get_status).toBe(200);
+            expect(get_message).toMatchObject({ "nome": nome, "filme_id": id, "sinopse": sinopse, "genero": genero});            
+        });
+
+        when(/^o administrador envia uma requisição PUT para a rota \/movie passando o ID "(.*)" com os campos sinopse e gênero sendo "(.*)" e "(.*)".$/, async(id, sinopse, genero) => {
+            const data = {
+                filme_id: id,
+                sinopse: sinopse,
+                genero: genero
+            }
+
+            const response = await axios.put('http://localhost:3000/movie', data);
+            put_status = response.status;
+            put_message = response.data.message;
+        });
+
+        then(/^o sistema retorna o status code (\d+) e a mensagem "(.*)"$/, (status, message) => {
+            expect(put_status).toBe(Number(status));
+            expect(put_message).toEqual(message);
+        });
+
+        and(/^Os campos sinopse e genero agora são "(.*)" e "(.*)".$/, async(sinopse, genero) => {
+            const data = {
+                filme_id: filme_id
+            };
+            const response = await axios.get('http://localhost:3000/movie', { data });
+            get_data = response.data;
+            expect(get_status).toBe(200);
+            expect(get_data).toMatchObject({"sinopse": sinopse, "genero": genero});   
+        });
+    }); 
     
  
 

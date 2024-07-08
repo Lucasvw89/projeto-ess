@@ -86,10 +86,9 @@ exports.delMovie = (req, res) => {
   }
 };
 
-
 exports.editMovie = (req, res) => {
   try {
-    const { filme_id, nome, ano, duracao, genero, sinopse, poster, plataformas } = req.body;
+    const { filme_id, poster, nome, ano, duracao, sinopse, diretor, genero, plataformas } = req.body;
 
     const movieIndex = movies.findIndex(movie => movie.filme_id === filme_id);
 
@@ -97,19 +96,24 @@ exports.editMovie = (req, res) => {
       return res.status(404).json({ error: 'Filme não encontrado' });
     }
 
-    if (!nome && !ano && !duracao && !genero && !sinopse && !poster && !plataformas) {
+    if (!poster && !nome && !ano && !duracao && !sinopse && !diretor && !genero && !plataformas) {
       return res.status(400).json({ error: 'Nenhum campo para atualizar' });
     }
 
+    if (poster) movies[movieIndex].poster = poster;
     if (nome) movies[movieIndex].nome = nome;
     if (ano) movies[movieIndex].ano = ano;
     if (duracao) movies[movieIndex].duracao = duracao;
-    if (genero) movies[movieIndex].genero = genero;
     if (sinopse) movies[movieIndex].sinopse = sinopse;
-    if (poster) movies[movieIndex].poster = poster;
+    if (diretor) movies[movieIndex].diretor = diretor;
+    if (genero) movies[movieIndex].genero = genero;
     if (plataformas) movies[movieIndex].plataformas = plataformas;
 
-    res.status(200).json(movies[movieIndex]);
+    res.status(200).json({
+      message: "Filme Editado com Sucesso",
+      movie: movies[movieIndex]
+    });
+    
     
   } catch (error) {
     console.error(error);
