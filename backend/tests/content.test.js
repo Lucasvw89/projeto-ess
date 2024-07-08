@@ -6,7 +6,6 @@ const content_feature = loadFeature('./tests/features/content.feature');
 defineFeature(content_feature, (test) => {
 
     test('Cadastro de Filme com sucesso', ({ given, when, then }) => {
-        var post_status;
 
         given('o banco de dados requer os dados obrigatórios nome, gênero, ano, diretor, duracao, sinopse e poster para o cadastro.', () => {
 
@@ -24,8 +23,8 @@ defineFeature(content_feature, (test) => {
             }
 
             const response = await axios.post('http://localhost:3000/movie', movie_data);
-            const post_status = response.status;
-            const post_message = response.data;
+            post_status = response.status;
+            post_message = response.data;
 
         });
 
@@ -47,8 +46,8 @@ defineFeature(content_feature, (test) => {
             };
 
             const response = await axios.get('http://localhost:3000/movie', { data });
-            const get_status = response.status;
-            const get_message = response.data;
+            get_status = response.status;
+            get_message = response.data;
             expect(get_status).toBe(200);
             expect(get_message).toMatchObject({ "nome": nome, "filme_id": id});
         });
@@ -59,8 +58,8 @@ defineFeature(content_feature, (test) => {
             };
 
             const response = await axios.delete('http://localhost:3000/movie', { data });
-            const delete_status = response.status;
-            const delete_message = response.data;
+            delete_status = response.status;
+            delete_message = response.data;
         });
 
         then(/^o sistema retorna o status code (\d+) e a resposta deve conter a mensagem "(.*)"$/, (status, message) => {
