@@ -172,15 +172,11 @@ defineFeature(content_feature, (test) => {
         });
 
         then(/^O sistema retorna o status code (\d+) e a mensagem de erro "(.*)".$/, async(status, message) => {
-            console.log("ENTROU")
             try{
-                console.log("Deu bom")
                 const response = await axios.post('http://localhost:3000/movie', movie_data);
             }
             catch (error) {
-                console.log("deu ruim")
                 expect(error.response.status).toBe(Number(status));
-                console.log(error.response.data);
                 expect(error.response.data).toMatchObject({"error": message});
 
             }
