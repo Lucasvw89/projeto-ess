@@ -1,6 +1,6 @@
 import api from '../index'
 
-export default async function DeletePost(filme_id) {
+export default async function DeleteMovie(filme_id) {
   try {
     const data = {
       filme_id: filme_id

@@ -1,6 +1,6 @@
 import api from '../index'
 
-export default async function UpdatePost(filme_id, poster, nome, ano, duracao, sinopse, diretor, genero, plataformas) {
+export default async function EditMovie(filme_id, poster, nome, ano, duracao, sinopse, diretor, genero, plataformas) {
   try {
     const data = {
       filme_id: filme_id,
