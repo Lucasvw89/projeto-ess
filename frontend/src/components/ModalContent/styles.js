@@ -14,29 +14,40 @@ const styles = {
   },
   modal: {
     width: '73%',
+    height: '50%',
     margin: '0 auto',
-    padding: '3rem',
-    backgroundColor: '#fff',
+    padding: '4em',
+    backgroundColor: '#ffdce4',
     display: 'flex',
     flexDirection: 'row',
     borderRadius: '22px'
   },
-  cotainer: {
+  container: {
     display: 'flex',
     flexDirection: 'column',
     flex: 1
   },
+  main_title: {
+    fontSize: '3em',
+    fontWeight: '700',
+    color: '#000'
+  },
   exit: {
-    display: 'flex'
+    display: 'flex',
+    marginBottom: '3em'
+  },
+  exit__btn: {
+    marginLeft: 'auto',
+    cursor: 'pointer'
   },
   body: {
     display: 'flex'
   },
   image: {
-    marginRight: '2rem'
+    marginRight: '2em'
   },
   imageContent: {
-    maxWidth: '19rem',
+    maxWidth: '19em',
     height: 'auto',
     borderRadius: '12px',
     border: '2px solid #000'
@@ -47,19 +58,20 @@ const styles = {
     flexDirection: 'column'
   },
   title: {
-    marginBottom: '2rem',
+    marginTop: '1em',
+    marginBottom: '2em',
     display: 'flex',
     width: '90%',
     padding: '10px',
-    fontSize: '1rem'
+    fontSize: '1eem'
   },
   textarea__name: {
     backgroundColor: '#F6F6F6',
     fontFamily: 'Be Vietnam Pro',
     flex: 3,
-    marginRight: '0.5rem',
+    marginRight: '0.5em',
     padding: '10px',
-    fontSize: '1.7rem', // Change to 1rem as per your request
+    fontSize: '1.7em', // Change to 1em as per your request
     border: '1px solid #000', // Border size 1 and color #000
     borderRadius: '6px' // Border radius 4px
   },
@@ -67,9 +79,9 @@ const styles = {
     backgroundColor: '#F6F6F6',
     fontFamily: 'Be Vietnam Pro',
     flex: 1,
-    marginRight: '0.5rem',
+    marginRight: '0.5em',
     padding: '10px',
-    fontSize: '1.7rem', // Change to 1rem as per your request
+    fontSize: '1.7eem', // Change to 1em as per your request
     border: '1px solid #000', // Border size 1 and color #000
     borderRadius: '6px' // Border radius 4px
   },
@@ -77,9 +89,9 @@ const styles = {
     backgroundColor: '#F6F6F6',
     fontFamily: 'Be Vietnam Pro',
     flex: 1,
-    marginRight: '0.5rem',
+    marginRight: '0.5em',
     padding: '10px',
-    fontSize: '1.7rem', // Change to 1rem as per your request
+    fontSize: '1.7em', // Change to 1em as per your request
     border: '1px solid #000', // Border size 1 and color #000
     borderRadius: '6px' // Border radius 4px
   },
@@ -89,7 +101,7 @@ const styles = {
     flex: 2,
     width: '100%',
     padding: '10px',
-    fontSize: '1.7rem', // Change to 1rem as per your request
+    fontSize: '1.7em', // Change to 1em as per your request
     border: '1px solid #000', // Border size 1 and color #000
     borderRadius: '6px' // Border radius 4px
   },
@@ -97,40 +109,22 @@ const styles = {
     fontSize: '1.2em',
     color: '#555'
   },
-  form: {
-    display: 'flex',
-    flexDirection: 'column',
-    alignItems: 'flex-start'
-  },
   sinopsis: {
     backgroundColor: '#F6F6F6',
     fontFamily: 'Be Vietnam Pro',
     flex: 1,
     width: '90%',
-    marginRight: '0.5rem',
-    marginBottom: '1.5rem',
+    marginRight: '0.5em',
+    marginBottom: '1.5em',
     padding: '10px',
-    fontSize: '1rem', // Change to 1rem as per your request
+    fontSize: '1em', // Change to 1em as per your request
     border: '1px solid #000', // Border size 1 and color #000
     borderRadius: '6px' // Border radius 4px
   },
-  form__bottom: {
+  form__button: {
+    width: '90%',
     display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'flex-end',
-    width: '90%'
-  },
-  form__bottom__nota_label: {
-    fontFamily: 'Be Vietnam Pro',
-    fontSize: '2rem',
-    fontWeight: '700',
-    marginBottom: '0.8rem'
-  },
-  form__bottom__nota_error: {
-    fontFamily: 'Be Vietnam Pro',
-    fontSize: '1rem',
-    color: 'red',
-    marginBottom: '0.2rem'
+    justifyContent: 'flex-end'
   },
   button: {
     cursor: 'pointer',
@@ -138,10 +132,10 @@ const styles = {
     border: 'none',
     borderRadius: '12px',
     fontFamily: 'Be Vietnam Pro',
-    fontSize: '1.5rem',
+    fontSize: '1.5em',
     color: '#fff',
     fontWeight: '700',
-    padding: '10px 1rem'
+    padding: '10px 1em'
   }
 }
 

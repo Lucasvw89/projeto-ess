@@ -1,10 +1,10 @@
 import React from 'react'
-import { Rating } from '@mui/material'
+// import { Rating } from '@mui/material'
 import styles from './styles'
 // import CreatePost from '../../services/posts/CreatePost'
 // import UpdatePost from '../../services/posts/UpdatePost'
-// import { IoCloseSharp } from 'react-icons/io5'
-import StarIcon from '@mui/icons-material/Star'
+import { IoCloseSharp } from 'react-icons/io5'
+// import StarIcon from '@mui/icons-material/Star'
 
 const ModalReview = ({ imageUrl }) => {
   const jaca = 2
@@ -13,8 +13,11 @@ const ModalReview = ({ imageUrl }) => {
     return (
       <div style={styles.background}>
         <div style={styles.modal}>
-          <div style={styles.cotainer}>
-            <div style={styles.exit}></div>
+          <div style={styles.container}>
+            <div style={styles.exit}>
+              <p style={styles.main_title}>Cadastro de Filme</p>
+              <IoCloseSharp size={32} style={styles.exit__btn} />
+            </div>
             <div style={styles.body}>
               <div style={styles.image}>
                 <img src={imageUrl} alt='Modal Image' style={styles.imageContent} />
@@ -28,19 +31,9 @@ const ModalReview = ({ imageUrl }) => {
                 </div>
                 <div style={styles.form}>
                   <textarea type='text' placeholder='Escreva aqui sua review...' style={styles.sinopsis} rows={12} />
-                  <div style={styles.form__bottom}>
-                    <div style={styles.form__bottom__nota}>
-                      <p style={styles.form__bottom__nota_label}>Nota</p>
-                      {<p style={styles.form__bottom__nota_error}>Nota é obrigatória</p>}
-                      <Rating
-                        name='simple-controlled'
-                        precision={0.5}
-                        emptyIcon={<StarIcon style={{ color: '#D9D9D9' }} />}
-                        icon={<StarIcon style={{ color: '#FF182C' }} />}
-                      />
-                    </div>
-                    <button style={styles.button}></button>
-                  </div>
+                </div>
+                <div style={styles.form__button}>
+                  <button style={styles.button}> ENVIAR </button>
                 </div>
               </div>
             </div>
