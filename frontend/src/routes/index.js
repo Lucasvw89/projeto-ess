@@ -1,16 +1,18 @@
 import React from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Login from '../pages/login'
+// import Login from '../pages/login'
 import Dashboard from '../pages/dashboard'
 import Filme from '../pages/filme'
+import ModalContent from '../components/ModalContent'
 
 export default function Rotas() {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Login />} />
+        <Route path='/' element={<ModalContent />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/filme/:id' element={<Filme />} />
+        {/* <Route path='/modal' element={<ModalReview />} /> */}
       </Routes>
     </Router>
   )
