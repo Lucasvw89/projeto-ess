@@ -1,6 +1,7 @@
 import React from 'react'
 import styles from './styles'
 import { IoCloseSharp } from 'react-icons/io5'
+import MovieFrame from '../MovieFrame'
 
 const ModalContent = () => {
   return (
@@ -11,11 +12,12 @@ const ModalContent = () => {
           <IoCloseSharp size={48} cursor={'pointer'} />
         </div>
         <div style={styles.content}>
-          <img
+          <MovieFrame style={styles.poster_img} />
+          {/* <img
             src='https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg'
             alt='Poster do Filme'
             style={styles.poster_img}
-          />
+          /> */}
           <div style={styles.form}>
             <div style={styles.info}>
               <input style={styles.input_name} type='text' id='nome-filme' name='nome-filme' placeholder='Nome do Filme' />

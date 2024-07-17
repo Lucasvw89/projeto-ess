@@ -4,6 +4,7 @@ import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Dashboard from '../pages/dashboard'
 import Filme from '../pages/filme'
 import ModalContent from '../components/ModalContent'
+import MovieFrame from '../components/MovieFrame'
 
 export default function Rotas() {
   return (
@@ -12,6 +13,7 @@ export default function Rotas() {
         <Route path='/' element={<ModalContent />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/filme/:id' element={<Filme />} />
+        <Route path='/movieframe' element={<MovieFrame />} />
         {/* <Route path='/modal' element={<ModalReview />} /> */}
       </Routes>
     </Router>
