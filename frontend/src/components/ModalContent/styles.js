@@ -1,141 +1,125 @@
 // Example styles object
 const styles = {
   background: {
-    position: 'fixed',
-    top: 0,
-    left: 0,
+    backgroundColor: 'rgb(0, 0, 0, 0.54)',
     width: '100%',
-    height: '100%',
-    backgroundColor: 'rgba(0, 0, 0, 0.54)',
+    height: '100vh',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center',
-    zIndex: 2
+    alignItems: 'center'
   },
   modal: {
-    width: '73%',
-    height: '50%',
-    margin: '0 auto',
-    padding: '4em',
-    backgroundColor: '#ffdce4',
-    display: 'flex',
-    flexDirection: 'row',
-    borderRadius: '22px'
-  },
-  container: {
+    backgroundColor: 'pink',
+    padding: '2% 6.1%',
+    border: '1px solid black',
+    borderRadius: '22px',
     display: 'flex',
     flexDirection: 'column',
-    flex: 1
+    maxWidth: '1414px',
+    maxHeigth: '700px',
+    boxSizing: 'border-box'
   },
-  main_title: {
-    fontSize: '3em',
-    fontWeight: '700',
-    color: '#000'
-  },
-  exit: {
+  titulo: {
     display: 'flex',
-    marginBottom: '3em'
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    alignItems: 'center',
+    margin: '2.6rem 0rem'
   },
-  exit__btn: {
-    marginLeft: 'auto',
-    cursor: 'pointer'
+  fonte_titulo: {
+    fontFamily: 'Bebas Neue',
+    fontSize: '3rem'
   },
-  body: {
-    display: 'flex'
+
+  content: {
+    display: 'flex',
+    justifyContent: 'space-between'
   },
-  image: {
-    marginRight: '2em'
-  },
-  imageContent: {
-    maxWidth: '19em',
+  poster_img: {
+    width: '29.6%',
     height: 'auto',
     borderRadius: '12px',
     border: '2px solid #000'
   },
-  content: {
-    flex: 1,
+  form: {
     display: 'flex',
+    width: '65%',
     flexDirection: 'column'
   },
-  title: {
-    marginTop: '1em',
-    marginBottom: '2em',
+  info: {
     display: 'flex',
-    width: '90%',
-    padding: '10px',
-    fontSize: '1eem'
-  },
-  textarea__name: {
-    backgroundColor: '#F6F6F6',
+    flexDirection: 'row',
+    justifyContent: 'space-between',
     fontFamily: 'Be Vietnam Pro',
-    flex: 3,
-    marginRight: '0.5em',
-    padding: '10px',
-    fontSize: '1.7em', // Change to 1em as per your request
-    border: '1px solid #000', // Border size 1 and color #000
-    borderRadius: '6px' // Border radius 4px
+    fontSize: '1rem',
+    height: '15%',
+    marginBottom: '1.5rem',
+    gap: '1.5rem'
   },
-  textarea__year: {
-    backgroundColor: '#F6F6F6',
-    fontFamily: 'Be Vietnam Pro',
-    flex: 1,
-    marginRight: '0.5em',
-    padding: '10px',
-    fontSize: '1.7eem', // Change to 1em as per your request
-    border: '1px solid #000', // Border size 1 and color #000
-    borderRadius: '6px' // Border radius 4px
+  input_name: {
+    width: '30.9%',
+    padding: '5px',
+    border: '1px solid black',
+    borderRadius: '4px',
+    backgroundColor: 'transparent',
+    fontFamily: 'Montserrat',
+    fontSize: '1.5rem',
+    textAlign: 'center'
   },
-  textarea__time: {
-    backgroundColor: '#F6F6F6',
-    fontFamily: 'Be Vietnam Pro',
-    flex: 1,
-    marginRight: '0.5em',
-    padding: '10px',
-    fontSize: '1.7em', // Change to 1em as per your request
-    border: '1px solid #000', // Border size 1 and color #000
-    borderRadius: '6px' // Border radius 4px
+  input_year: {
+    width: '13.2%',
+    padding: '5px',
+    border: '1px solid black',
+    borderRadius: '4px',
+    backgroundColor: 'transparent',
+    fontFamily: 'Montserrat',
+    fontSize: '1.5rem',
+    textAlign: 'center'
   },
-  textarea__genre: {
-    backgroundColor: '#F6F6F6',
-    fontFamily: 'Be Vietnam Pro',
-    flex: 2,
-    width: '100%',
-    padding: '10px',
-    fontSize: '1.7em', // Change to 1em as per your request
-    border: '1px solid #000', // Border size 1 and color #000
-    borderRadius: '6px' // Border radius 4px
+  input_duration: {
+    width: '23.7%',
+    padding: '5px',
+    border: '1px solid black',
+    borderRadius: '4px',
+    backgroundColor: 'transparent',
+    fontFamily: 'Montserrat',
+    fontSize: '1.5rem',
+    textAlign: 'center'
   },
-  description: {
-    fontSize: '1.2em',
-    color: '#555'
+  input_genre: {
+    width: '23.7%',
+    padding: '5px',
+    border: '1px solid black',
+    borderRadius: '4px',
+    backgroundColor: 'transparent',
+    fontFamily: 'Montserrat',
+    fontSize: '1.5rem',
+    textAlign: 'center'
   },
-  sinopsis: {
-    backgroundColor: '#F6F6F6',
-    fontFamily: 'Be Vietnam Pro',
-    flex: 1,
-    width: '90%',
-    marginRight: '0.5em',
-    marginBottom: '1.5em',
-    padding: '10px',
-    fontSize: '1em', // Change to 1em as per your request
-    border: '1px solid #000', // Border size 1 and color #000
-    borderRadius: '6px' // Border radius 4px
+  sinopse_textarea: {
+    backgroundColor: 'transparent',
+    border: '1px solid #000',
+    borderRadius: '6px',
+    fontFamily: 'Montserrat',
+    fontSize: '1.2rem',
+    textAlign: 'left',
+    padding: '22px',
+    height: '100%'
   },
-  form__button: {
-    width: '90%',
+  confirm: {
     display: 'flex',
-    justifyContent: 'flex-end'
+    justifyContent: 'right',
+    marginTop: '1.6rem'
   },
-  button: {
+  button_confirm: {
     cursor: 'pointer',
     backgroundColor: '#FF182C',
     border: 'none',
     borderRadius: '12px',
-    fontFamily: 'Be Vietnam Pro',
-    fontSize: '1.5em',
+    fontSize: '1.5rem',
     color: '#fff',
-    fontWeight: '700',
-    padding: '10px 1em'
+    padding: '12px 3.5rem',
+    fontFamily: 'Bebas Neue'
   }
 }
 
