@@ -2,11 +2,13 @@
 const styles = {
   background: {
     backgroundColor: 'rgb(0, 0, 0, 0.54)',
-    width: '100%',
+    // position: 'relative',
+    width: '100vw',
     height: '100vh',
     display: 'flex',
     justifyContent: 'center',
-    alignItems: 'center'
+    alignItems: 'center',
+    zIndex: 2
   },
   modal: {
     backgroundColor: 'pink',

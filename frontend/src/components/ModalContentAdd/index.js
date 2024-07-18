@@ -10,6 +10,8 @@ const ModalContentAdd = () => {
   const [postDuration, setPostDuration] = useState('')
   const [postGenre, setPostGenre] = useState('')
   const [postSynopsis, setPostSynopsis] = useState('')
+  const [switchImage, setSwitchImage] = useState(false)
+  const [movieName, setMovieName] = useState('')
 
   const handleAddMovie = async () => {
     const response = await AddMovie(postName, postYear, postDuration, postSynopsis, postGenre)
@@ -42,6 +44,28 @@ const ModalContentAdd = () => {
     }
   }
 
+  const handleSwitchImage = async () => {
+    let text
+    text = prompt('Coloque a URL da imagem do poster do filme: ')
+    if (text) {
+      setSwitchImage(!switchImage)
+      setMovieName(text)
+    }
+  }
+
+  function toggleImage(props) {
+    return (
+      <>
+        {' '}
+        {!props.switchImage ? (
+          <MovieFrame style={styles.poster_img} onClick={handleSwitchImage} />
+        ) : (
+          <img src={movieName} alt='Poster do Filme' style={styles.poster_img} />
+        )}
+      </>
+    )
+  }
+
   return (
     <div style={styles.background}>
       <div style={styles.modal}>
@@ -50,7 +74,7 @@ const ModalContentAdd = () => {
           <IoCloseSharp size={48} cursor={'pointer'} />
         </div>
         <div style={styles.content}>
-          <MovieFrame style={styles.poster_img} />
+          {toggleImage({ switchImage })}
           <div style={styles.form}>
             <div style={styles.info}>
               <input

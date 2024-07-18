@@ -11,13 +11,13 @@ const AdminDashboard = () => {
   }
 
   function ModalAddMovie(props) {
-    return <>{props.showContent && <ModalContentAdd />}</>
+    return <>{props.showContent && <ModalContentAdd showContent={showContent} />}</>
   }
+
   return (
     <div style={styles.container}>
       <div>
-        <h1>Bem vindo ao dashboard</h1>
-        <ModalAddMovie showContent={showContent} />
+        {showContent && <ModalAddMovie showContent={showContent} />}
         <MovieFrame onClick={handleContent} />
       </div>
     </div>
