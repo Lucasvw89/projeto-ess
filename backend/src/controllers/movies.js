@@ -37,28 +37,26 @@ exports.addMovie = (req, res) => {
       return res.status(409).json({ error: 'Filme já cadastrado no sistema' });
     }
 
-
-
     if (!poster) {
-      return res.status(400).json({ error: 'O poster não foi adicionado', error: "Campos não preenchidos" });
+      return res.status(400).json({ error: 'O poster não foi adicionado' });
     }
     if (!nome) {
-      return res.status(400).json({ error: 'O campo nome não foi preenchido', error: "Campos não preenchidos" });
+      return res.status(400).json({ error: 'O campo nome não foi preenchido' });
     }
     if (!ano) {
-      return res.status(400).json({ error: 'O campo ano não foi preenchido', error: "Campos não preenchidos" });
+      return res.status(400).json({ error: 'O campo ano não foi preenchido' });
     }
     if (!duracao) {
-      return res.status(400).json({ error: 'O campo duração não foi preenchido', error: "Campos não preenchidos" });
+      return res.status(400).json({ error: 'O campo duração não foi preenchido' });
     }
     if (!sinopse) {
-      return res.status(400).json({ error: 'O campo sinopse não foi preenchido', error: "Campos não preenchidos" });
+      return res.status(400).json({ error: 'O campo sinopse não foi preenchido' });
     }
     if (!diretor) {
-      return res.status(400).json({ error: 'O campo diretor não foi preenchido', error: "Campos não preenchidos" });
+      return res.status(400).json({ error: 'O campo diretor não foi preenchido' });
     }
     if (!genero) {
-      return res.status(400).json({ error: 'O campo genero não foi preenchido', error: "Campos não preenchidos" });
+      return res.status(400).json({ error: 'O campo genero não foi preenchido' });
     }
 
     
