@@ -62,7 +62,7 @@ const ModalReview = ({
   if (isOpen) {
     return (
       <div style={styles.background}>
-        <div style={styles.modal}>
+        <div style={styles.modal} className='modal'>
           <div style={styles.cotainer}>
             <div style={styles.exit}>
               <IoCloseSharp size={32} onClick={setModalOpen} style={styles.exit__btn} />
@@ -101,6 +101,7 @@ const ModalReview = ({
                         precision={0.5}
                         emptyIcon={<StarIcon style={{ color: '#D9D9D9' }} />}
                         icon={<StarIcon style={{ color: '#FF182C' }} />}
+                        data-testid='rating-component'
                       />
                     </div>
                     <button style={styles.button} onClick={handleCreatePost}>
