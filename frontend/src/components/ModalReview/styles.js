@@ -86,9 +86,9 @@ const styles = {
     marginRight: '0.5rem',
     marginBottom: '1.5rem',
     padding: '10px',
-    fontSize: '1rem', // Change to 1rem as per your request
-    border: '1px solid #000', // Border size 1 and color #000
-    borderRadius: '6px' // Border radius 4px
+    fontSize: '1rem',
+    border: '1px solid #000',
+    borderRadius: '6px'
   },
   form__bottom: {
     display: 'flex',

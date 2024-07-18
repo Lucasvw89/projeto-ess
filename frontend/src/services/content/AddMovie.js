@@ -1,17 +1,17 @@
 import api from '../index'
 
-export default async function AddMovie(poster, nome, ano, duracao, sinopse, diretor, genero) {
+export default async function AddMovie(nome, ano, duracao, sinopse, genero) {
   try {
     const data = {
-      poster: poster,
+      poster: 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2/6CoRTJTmijhBLJTUNoVSUNxZMEI.jpg',
       nome: nome,
       ano: ano,
       duracao: duracao,
       sinopse: sinopse,
-      diretor: diretor,
+      diretor: 'Placeholder',
       genero: genero
     }
-    const response = await api.post('/movies', data)
+    const response = await api.post('/movie', data)
     return response
   } catch (error) {
     if (error.response && error.response.data && error.response.data.error === 'Filme já cadastrado no sistema') {
