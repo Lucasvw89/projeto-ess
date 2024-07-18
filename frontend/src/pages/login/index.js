@@ -13,12 +13,19 @@ const Login = () => {
     navigate('/dashboard')
   }
 
+  const HandleAdminLogin = () => {
+    navigate('/admindashboard')
+  }
+
   return (
     <div style={styles.container}>
       <div>
         <h1 style={styles.title}>Login</h1>
         <Button variant='contained' color='primary' onClick={handleLogin}>
           Login
+        </Button>
+        <Button variant='contained' color='primary' onClick={HandleAdminLogin}>
+          Admin Login
         </Button>
       </div>
     </div>
