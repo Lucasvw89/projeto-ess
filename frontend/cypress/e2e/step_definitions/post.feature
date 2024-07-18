@@ -17,7 +17,7 @@ Scenario: Criação de um review sem a descricao.
 	And Um "Modal de Review" abre na minha tela
     And Eu preencho "5" no campo nota e clico no botão "ENVIAR"
 	And O "Modal de Review" fecha
-	Then Eu posso ver meu review no "Forum"
+	Then Eu posso ver meu review no "Forum", com nota "5" e sem "Review"
 
 # Scenario: Falha criação de review sem nota.
 # 	Given Eu Estou na página do filme "Oppenheimer"
