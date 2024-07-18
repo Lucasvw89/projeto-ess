@@ -2,7 +2,8 @@
 const styles = {
   carousel: {
     display: 'flex',
-    overflowX: 'auto',
+    overflowX: 'hidden',
+    overflowY: 'hidden',
     scrollBehavior: 'smooth',
     maxWidth: '75vw',
     backgroundColor: 'pink'
@@ -11,7 +12,7 @@ const styles = {
     maxWidth: '100%',
     backgroundColor: 'pink',
     flex: 'none',
-    margin: '14px   '
+    margin: '14px'
   },
   image_div: {
     width: '100%',
@@ -34,6 +35,25 @@ const styles = {
     color: 'white',
     fontFamily: 'Bebas Neue',
     fontSize: '1.5rem'
+  },
+  carouselContainer: {
+    display: 'flex',
+    alignItems: 'center',
+    position: 'relative'
+  },
+  leftClickArea: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    width: '50px',
+    height: 'auto',
+    cursor: 'pointer'
+  },
+  rightClickArea: {
+    backgroundColor: 'transparent',
+    border: 'none',
+    width: '50px',
+    height: 'auto',
+    cursor: 'pointer'
   }
 }
 
