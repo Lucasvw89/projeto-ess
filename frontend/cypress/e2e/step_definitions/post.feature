@@ -11,13 +11,13 @@ Scenario: Criar um review.
 	And O "Modal de Review" fecha
 	Then Eu posso ver meu review no "Forum"
 
-# Scenario: Criação de um review sem a descricao.
-# 	Given Eu Estou na página do filme "Teste"
-# 	When Eu clico no botão "Poste um Review"
-# 	And Um "Modal de Review" abre na minha tela
-#     And Eu preencho "5" no campo nota e clico no botão "ENVIAR"
-# 	And O "Modal de Review" fecha
-# 	Then Eu posso ver meu review no "Forum"
+Scenario: Criação de um review sem a descricao.
+	Given Eu Estou na página do filme "Teste"
+	When Eu clico no botão "Poste um Review"
+	And Um "Modal de Review" abre na minha tela
+    And Eu preencho "5" no campo nota e clico no botão "ENVIAR"
+	And O "Modal de Review" fecha
+	Then Eu posso ver meu review no "Forum"
 
 # Scenario: Falha criação de review sem nota.
 # 	Given Eu Estou na página do filme "Oppenheimer"
