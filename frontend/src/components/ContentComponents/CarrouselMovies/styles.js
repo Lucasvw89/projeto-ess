@@ -1,12 +1,35 @@
 // Example styles object
 const styles = {
+  carouselContainer: {
+    display: 'flex',
+    flexDirection: 'column',
+    alignItems: 'center',
+    position: 'relative'
+  },
   carousel: {
     display: 'flex',
     overflowX: 'hidden',
     overflowY: 'hidden',
     scrollBehavior: 'smooth',
-    maxWidth: '75vw',
+    maxWidth: '86vw',
     backgroundColor: 'pink'
+  },
+  carouselDiv: {
+    display: 'flex'
+  },
+  divTitle: {
+    width: '92vw',
+    display: 'flex',
+    alignItems: 'left',
+    backgroundColor: 'pink'
+  },
+  p: {
+    margin: '0',
+    padding: '0',
+    paddingLeft: '28px',
+    fontFamily: 'Bebas Neue',
+    fontSize: '2rem',
+    textAlign: 'left'
   },
   movie: {
     maxWidth: '100%',
@@ -37,22 +60,17 @@ const styles = {
     fontFamily: 'Bebas Neue',
     fontSize: '1.5rem'
   },
-  carouselContainer: {
-    display: 'flex',
-    alignItems: 'center',
-    position: 'relative'
-  },
   leftClickArea: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'pink',
     border: 'none',
-    width: '50px',
+    width: '3vw',
     height: 'auto',
     cursor: 'pointer'
   },
   rightClickArea: {
-    backgroundColor: 'transparent',
+    backgroundColor: 'pink',
     border: 'none',
-    width: '50px',
+    width: '3vw',
     height: 'auto',
     cursor: 'pointer'
   }

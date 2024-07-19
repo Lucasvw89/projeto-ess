@@ -1,7 +1,7 @@
 import React from 'react'
 import styles from './styles'
 import { IoCloseSharp } from 'react-icons/io5'
-import MovieFrame from '../MovieFrame'
+import MovieFrame from '../../MovieFrame'
 
 const ModalContent = () => {
   return (

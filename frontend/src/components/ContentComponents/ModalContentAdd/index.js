@@ -2,9 +2,9 @@ import React, { useState } from 'react'
 import styles from './styles'
 import { IoCloseSharp } from 'react-icons/io5'
 import MovieFrame from '../MovieFrame'
-import AddMovie from '../../services/content/AddMovie'
+import AddMovie from '../../../services/content/AddMovie'
 
-const ModalContentAdd = () => {
+const ModalContentAdd = ({ handleContent }) => {
   const [postName, setPostName] = useState('')
   const [postYear, setPostYear] = useState('')
   const [postDuration, setPostDuration] = useState('')
@@ -23,6 +23,7 @@ const ModalContentAdd = () => {
       setPostDuration('')
       setPostGenre('')
       setPostSynopsis('')
+      handleContent()
     } else if (response === 'Filme já cadastrado no sistema') {
       alert('Filme já cadastrado no sistema')
       // } else if (response === 'O poster não foi adicionado') {
@@ -71,7 +72,7 @@ const ModalContentAdd = () => {
       <div style={styles.modal}>
         <div style={styles.titulo}>
           <p style={styles.fonte_titulo}>Cadastrar Filme:</p>
-          <IoCloseSharp size={48} cursor={'pointer'} />
+          <IoCloseSharp size={48} cursor={'pointer'} onClick={handleContent} />
         </div>
         <div style={styles.content}>
           {toggleImage({ switchImage })}
