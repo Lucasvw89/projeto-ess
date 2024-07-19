@@ -17,6 +17,7 @@ const styles = {
   image_div: {
     width: '100%',
     height: '400px'
+    // background: 'linear-gradient(0deg, rgba(0,0,0,1) 0%, rgba(0,0,0,0.48679982246804976) 41%, rgba(255,255,255,0) 78%)'
   },
   image: {
     width: '100%',

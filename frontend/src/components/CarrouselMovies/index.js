@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import styles from './styles'
 import GetFilmes from '../../services/filmes/GetFilmes'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
+import MovieFrame from '../MovieFrame'
 
 const CarouselMovies = () => {
   const [filmes, setFilmes] = React.useState([])
@@ -34,6 +35,10 @@ const CarouselMovies = () => {
     <div style={styles.carouselContainer}>
       <FaChevronLeft style={styles.leftClickArea} onClick={scrollLeft} />
       <div id='carousel' style={styles.carousel}>
+        <div style={styles.image_div}>
+          <MovieFrame />
+        </div>
+
         {filmes.map((movie) => {
           const { filme_id, nome, poster } = movie
           return (

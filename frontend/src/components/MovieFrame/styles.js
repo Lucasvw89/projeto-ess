@@ -3,11 +3,15 @@ const styles = {
     display: 'flex',
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0)',
-    border: '2px solid #000',
+    backgroundColor: 'transparent',
     borderRadius: '12px',
-    width: '29.6%',
-    height: '506px'
+    border: '2px solid black',
+    margin: '14px',
+    width: '268px',
+    height: '400px'
+  },
+  circle: {
+    cursor: 'pointer'
   }
 }
 export default styles
