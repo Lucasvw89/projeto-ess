@@ -3,6 +3,7 @@ import styles from './styles'
 import GetFilmes from '../../../services/filmes/GetFilmes'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
 import MovieFrame from '../MovieFrame'
+import { Link } from 'react-router-dom'
 
 const CarouselMovies = ({ handleContent }) => {
   const [filmes, setFilmes] = React.useState([])
@@ -46,12 +47,12 @@ const CarouselMovies = ({ handleContent }) => {
           {filmes.map((movie) => {
             const { filme_id, nome, poster } = movie
             return (
-              <div key={filme_id} style={styles.movie}>
+              <Link to={`/filme/${filme_id}`} key={filme_id} style={styles.movie}>
                 <div style={styles.image_div}>
                   <img style={styles.image} src={poster} alt='movie' draggable='false' />
                   <span style={styles.title}>{nome}</span>
                 </div>
-              </div>
+              </Link>
             )
           })}
         </div>

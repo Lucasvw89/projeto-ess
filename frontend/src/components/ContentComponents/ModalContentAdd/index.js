@@ -10,11 +10,12 @@ const ModalContentAdd = ({ handleContent }) => {
   const [postDuration, setPostDuration] = useState('')
   const [postGenre, setPostGenre] = useState('')
   const [postSynopsis, setPostSynopsis] = useState('')
+  const [postImage, setPostImage] = useState('')
+
   const [switchImage, setSwitchImage] = useState(false)
-  const [movieName, setMovieName] = useState('')
 
   const handleAddMovie = async () => {
-    const response = await AddMovie(postName, postYear, postDuration, postSynopsis, postGenre)
+    const response = await AddMovie(postImage, postName, postYear, postDuration, postSynopsis, postGenre)
     console.log(response.status)
     if (response.status === 201) {
       alert('Filme cadastrado com sucesso!')
@@ -50,7 +51,7 @@ const ModalContentAdd = ({ handleContent }) => {
     text = prompt('Coloque a URL da imagem do poster do filme: ')
     if (text) {
       setSwitchImage(!switchImage)
-      setMovieName(text)
+      setPostImage(text)
     }
   }
 
@@ -61,7 +62,7 @@ const ModalContentAdd = ({ handleContent }) => {
         {!props.switchImage ? (
           <MovieFrame style={styles.poster_img} onClick={handleSwitchImage} />
         ) : (
-          <img src={movieName} alt='Poster do Filme' style={styles.poster_img} />
+          <img src={postImage} alt='Poster do Filme' style={styles.poster_img} />
         )}
       </>
     )
