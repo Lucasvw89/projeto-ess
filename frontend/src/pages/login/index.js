@@ -17,6 +17,10 @@ const Login = () => {
     navigate('/admindashboard')
   }
 
+  const HandleUserLogin = () => {
+    navigate('/userdashboard')
+  }
+
   return (
     <div style={styles.container}>
       <div>
@@ -26,6 +30,9 @@ const Login = () => {
         </Button>
         <Button variant='contained' color='primary' onClick={HandleAdminLogin}>
           Admin Login
+        </Button>
+        <Button variant='contained' color='primary' onClick={HandleUserLogin}>
+          User Login
         </Button>
       </div>
     </div>
