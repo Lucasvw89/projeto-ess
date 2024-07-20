@@ -1,6 +1,9 @@
 // Example styles object
 const styles = {
   background: {
+    position: 'fixed',
+    top: 0,
+    left: 0,
     backgroundColor: 'rgb(0, 0, 0, 0.54)',
     // position: 'relative',
     width: '100vw',
