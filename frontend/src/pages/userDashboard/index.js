@@ -12,12 +12,11 @@ const AdminDashboard = () => {
   function ModalAddMovie(props) {
     return <>{props.showContent && <ModalContentAdd showContent={showContent} handleContent={handleContent} />}</>
   }
-
   return (
     <div style={styles.background}>
-      <Header topRightName={'ADM'} />
+      <Header topRightName={'Usuario'} />
       <div>
-        <CarouselMovies handleContent={handleContent} showMovieFrame={true} />
+        <CarouselMovies handleContent={handleContent} showMovieFrame={false} />
         {showContent && <ModalAddMovie showContent={showContent} />}
       </div>
     </div>

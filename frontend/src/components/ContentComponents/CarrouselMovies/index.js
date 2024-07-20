@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
 import MovieFrame from '../MovieFrame'
 import { Link } from 'react-router-dom'
 
-const CarouselMovies = ({ handleContent }) => {
+const CarouselMovies = ({ handleContent, showMovieFrame }) => {
   const [filmes, setFilmes] = React.useState([])
 
   useEffect(() => {
@@ -30,6 +30,21 @@ const CarouselMovies = ({ handleContent }) => {
     })
   }
 
+  function handleMovieFrame(props) {
+    return (
+      <>
+        {' '}
+        {props.showMovieFrame ? (
+          <div style={styles.image_div}>
+            <MovieFrame onClick={handleContent} />
+          </div>
+        ) : (
+          <></>
+        )}
+      </>
+    )
+  }
+
   if (!filmes || !filmes.length) return null
 
   return (
@@ -40,10 +55,7 @@ const CarouselMovies = ({ handleContent }) => {
       <div style={styles.carouselDiv}>
         <FaChevronLeft style={styles.leftClickArea} onClick={scrollLeft} />
         <div id='carousel' style={styles.carousel}>
-          <div style={styles.image_div}>
-            <MovieFrame onClick={handleContent} />
-          </div>
-
+          {handleMovieFrame({ showMovieFrame })}
           {filmes.map((movie) => {
             const { filme_id, nome, poster } = movie
             return (

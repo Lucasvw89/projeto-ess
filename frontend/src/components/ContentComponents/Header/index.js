@@ -3,7 +3,7 @@ import styles from './styles'
 import { CiSearch } from 'react-icons/ci'
 import { BsPersonCircle } from 'react-icons/bs'
 
-const Header = () => {
+const Header = ({ topRightName }) => {
   return (
     <div style={styles.background}>
       <div style={styles.title}>
@@ -17,7 +17,7 @@ const Header = () => {
           <input style={styles.input_name} type='text' id='nome-filme' name='nome-filme' placeholder='Nome do Filme' />
         </div>
         <BsPersonCircle style={styles.profile} />
-        <p>ADM</p>
+        <p>{topRightName}</p>
       </div>
     </div>
   )

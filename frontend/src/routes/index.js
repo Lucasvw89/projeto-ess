@@ -4,7 +4,7 @@ import Login from '../pages/login'
 import Dashboard from '../pages/dashboard'
 import Filme from '../pages/filme'
 import AdminDashboard from '../pages/adminDashboard'
-import Header from '../components/ContentComponents/Header'
+import UserDashboard from '../pages/userDashboard'
 
 export default function Rotas() {
   return (
@@ -13,8 +13,8 @@ export default function Rotas() {
         <Route path='/' element={<Login />} />
         <Route path='/dashboard' element={<Dashboard />} />
         <Route path='/admindashboard' element={<AdminDashboard />} />
+        <Route path='/userdashboard' element={<UserDashboard />} />
         <Route path='/filme/:id' element={<Filme />} />
-        <Route path='/header' element={<Header />} />
       </Routes>
     </Router>
   )
