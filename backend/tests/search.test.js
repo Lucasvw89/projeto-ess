@@ -6,30 +6,20 @@ defineFeature(search_feature, test => {
 
     // Nesse cenário, filme1 e filme2 são os mesmos em todas as etapas
     // filme é uma palavra contida dentro do nome filme1 e filme2
-    test('Busca de filme por nome', ({ given, and, when, then }) => {
+    test('Busca de filme por nome', ({ given, when, then }) => {
 
         let search_results;
 
-        given('que o usuário está na página inicial', async () => {
+        given(/^os filmes "(.*)" e "(.*)" estão cadastrados no site$/, (filme1, filme2) => { });
 
-        });
-
-        and(/^os filmes "(.*)" e "(.*)" estão cadastrados no site$/, (filme1, filme2) => {
-
-        });
-
-        when('o usuário seleciona a opção de pesquisa', () => {
-
-        });
-
-        and(/^o usuário escreve "(.*)" e clica no botão "Pesquisar"$/, async (filme) => {
+        when(/^o usuário realiza uma requisição por "(.*)"$/, async (filme) => {
             const requisicao = {
                 "busca": filme
             };
             search_results = await axios.get('http://localhost:3000/search', {data:requisicao});
         });
 
-        then(/^os posts dos filmes "(.*)" e "(.*)" são exibidas$/, (filme1, filme2) => {
+        then(/^os posts dos filmes "(.*)" e "(.*)" são retornados pelo servidor$/, (filme1, filme2) => {
 
             let movie_names = [];
             for (let i = 0; i < search_results.data.length; i++) {
@@ -43,35 +33,25 @@ defineFeature(search_feature, test => {
                 ]
             );
         });
-    },
+    });
 
 
-    test('Busca de filmes por categoria', ({ given, and, when, then }) => {
+    test('Busca de filmes por categoria', ({ given, when, then }) => {
 
         let search_results;
 
-        given('que o usuário está na página inicial', () => {
+        given(/^a categoria "(.*)" existe e possui filmes categorizados nela$/, (categoria) => { });
 
-        });
-
-        and(/^a categoria "(.*)" está cadastrada e existem filmes categorizados nessa categoria$/, (categoria) => {
-
-        });
-
-        when('o usuário seleciona a opção de pesquisa', () => {
-
-        });
-
-        and(/^o usuário escreve "(.*)" e clica no botão "Pesquisar"$/, async (categoria) => {
+        when(/^o usuário realiza uma requisição por "(.*)"$/, async (categoria) => {
             const requisicao = {
                 "busca": categoria
             };
             search_results = await axios.get('http://localhost:3000/search', {data:requisicao});
         });
 
-        then(/^Reviews de filmes de "(.*)" são exibidas$/, (categoria) => {
+        then(/^os posts dos filmes categorizados em "(.*)" são retornados pelo servidor$/, (categoria) => {
 
-            console.log(search_results);
+            // console.log(search_results);
             let movie_genre = [];
             for (let i = 0; i < search_results.data.length; i++) {
                 movie_genre.push(search_results.data[i].genero);
@@ -83,9 +63,9 @@ defineFeature(search_feature, test => {
                 ],
             );
         });
-    }));
+    });
 
-    test('Busca falhou (Serviço)', ({ given, when, then, and }) => {
+    test('Busca de filmes por nome falhou', ({ given, when, then}) => {
 
         let search_results;
 
@@ -93,7 +73,7 @@ defineFeature(search_feature, test => {
 
         });
 
-        when(/^o usuário pesquisa "(.*)"$/, async (filme) => {
+        when(/^o usuário realiza uma requisição por "(.*)"$/, async (filme) => {
             const requisicao = {
                 "busca": filme
             };
@@ -101,10 +81,28 @@ defineFeature(search_feature, test => {
         });
 
         then('o servidor retorna uma mensagem de erro', () => {
+            expect(search_results.data).toEqual(
+                []
+            );
+        });
+    });
+
+    test('Busca de filmes por categoria falhou', ({ given, when, then}) => {
+
+        let search_results;
+
+        given(/^a categoria "(.*)" não existe$/, (arg0) => {
 
         });
 
-        and('uma mensagem informando que não foram encontrados resultados é exibida', () => {
+        when(/^o usuário realiza uma requisição por "(.*)"$/, async (filme) => {
+            const requisicao = {
+                "busca": filme
+            };
+            search_results = await axios.get('http://localhost:3000/search', {data:requisicao});
+        });
+
+        then('o servidor retorna uma mensagem de erro', () => {
             expect(search_results.data).toEqual(
                 []
             );
