@@ -9,4 +9,3 @@ router.put("/", post_controller.updatePost);
 
 module.exports = router;
 
-//

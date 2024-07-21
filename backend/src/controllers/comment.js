@@ -47,8 +47,6 @@ exports.deleteComment = (req, res) => {
 exports.putComment = (req, res) => {
     try {
         const { user_id, comment_id, comment } = req.body;
-        
-        console.log("user_id: " + user_id + " comment_id: " + comment_id + " comment: " + comment);
 
         if (!comment_id || !comment) {
             return res.status(400).json({ error: 'Invalid request parameters' });

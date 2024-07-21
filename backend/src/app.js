@@ -3,6 +3,7 @@ var cors = require('cors')
 const app = express();
 const router = require("./views/exemplo.routes");
 const postRouter = require("./views/posts.routes");
+const maintenanceRouter = require("./views/maintenance.routes");
 const searchRouter = require("./views/search.routes");
 const commentRouter = require("./views/comment.routes");
 const pagesRouter = require("./views/pages.router");
@@ -17,6 +18,10 @@ app.use("/", router);
 
 // Miguel
 app.use("/posts", postRouter);
+
+
+//Aline
+app.use("/maintenance", maintenanceRouter);
 
 //Ariel
 app.use("/movie", movieRouter);

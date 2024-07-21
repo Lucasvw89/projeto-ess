@@ -38,10 +38,12 @@ class Comment {
         if (id.length == 35) {
             // Procurar em comentários
             for (const filme of movies) {
-                for (const post of filme.posts) {
-                    const foundComment = Comment.findCommentById(post.comments, id, del, user_id);
-                    if (foundComment) {
-                        return foundComment;
+                if(filme.posts){
+                    for (const post of filme.posts) {
+                        const foundComment = Comment.findCommentById(post.comments, id, del, user_id);
+                        if (foundComment) {
+                            return foundComment;
+                        }
                     }
                 }
             }
