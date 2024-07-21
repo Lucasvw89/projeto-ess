@@ -3,6 +3,7 @@ const axios = require('axios');
 const comment_feature = loadFeature('./tests/features/comment.feature');
 
 function findCommentById(comments, commentId, user_id) {
+
     for (let i = 0; i < comments.length; i++) {
         const comment = comments[i];
         if (comment.comment_id === commentId) {
@@ -21,14 +22,16 @@ function findCommentById(comments, commentId, user_id) {
 function findById(movies, id, user_id = Infinity) {
     if (id.length == 35) {
         // Procurar em comentários
-        for (const filme of movies) {
-            for (const post of filme.posts) {
-                const foundComment = findCommentById(post.comments, id, user_id);
-                if (foundComment) {
-                    return foundComment;
+            for (const filme of movies) {
+                if (filme.posts){
+                    for (const post of filme.posts) {
+                        const foundComment = findCommentById(post.comments, id, user_id);
+                        if (foundComment) {
+                            return foundComment;
+                        }
+                    }
                 }
             }
-        }
     } else {
         // Procurar em posts
         for (const filme of movies) {
