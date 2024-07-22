@@ -1,5 +1,6 @@
 import React, { useEffect } from 'react'
 import styles from './styles'
+import { CiSearch } from 'react-icons/ci'
 import GetFilmes from '../../../services/filmes/GetFilmes'
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
 import MovieFrame from '../MovieFrame'
@@ -19,6 +20,8 @@ const CarouselMovies = ({ filmes_novos, handleContent, showMovieFrame }) => {
   useEffect(() => {
     if (filmes_novos && filmes_novos.length > 0) {
       setFilmes(filmes_novos)
+    } else if (filmes_novos && filmes_novos === 404) {
+      setFilmes([])
     }
   }, [filmes_novos])
 
@@ -51,7 +54,18 @@ const CarouselMovies = ({ filmes_novos, handleContent, showMovieFrame }) => {
     )
   }
 
-  if (!filmes || !filmes.length) return null
+  if (!filmes || !filmes.length)
+    return (
+      <div style={styles.carouselContainer}>
+        <div style={styles.divTitle}>
+          <p style={styles.p}></p>
+        </div>
+        <div style={styles.errorMessage}>
+          <CiSearch style={styles.icon} />
+          <p>Infelizmente não foram encontrados resultados para a sua busca :(</p>
+        </div>
+      </div>
+    )
 
   return (
     <div style={styles.carouselContainer}>

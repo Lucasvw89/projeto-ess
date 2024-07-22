@@ -73,6 +73,17 @@ const styles = {
     width: '3vw',
     height: 'auto',
     cursor: 'pointer'
+  },
+  errorMessage: {
+    color: 'grey',
+    textAlign: 'center',
+    marginTop: '15vh',
+    fontSize: '32px'
+  },
+  icon: {
+    color: 'grey',
+    textAlign: 'center',
+    fontSize: '200px'
   }
 }
 

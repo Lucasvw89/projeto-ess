@@ -26,7 +26,7 @@ const Header = ({ topRightName, retornar_filmes }) => {
       console.log('Resultados da busca:', result.data)
     } catch (error) {
       console.error('Erro na busca:', error)
-      // Trate o erro conforme necessário
+      retornar_filmes(404)
     }
   }
 

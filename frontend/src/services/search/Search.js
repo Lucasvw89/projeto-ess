@@ -1,15 +1,14 @@
-//import api from '../index'
-import axios from 'axios'
+import api from '../index'
 
 export default async function SearchFilmes(nome) {
   try {
-    const opa = {
+    const parametro_de_busca = {
       busca: nome
     }
 
-    console.log(opa)
+    console.log(parametro_de_busca)
 
-    const response = await axios.get('http://localhost:3000/search', { params: opa })
+    const response = await api.get('/search', { params: parametro_de_busca })
     return response
   } catch (error) {
     console.error(error)
