@@ -5,7 +5,7 @@ import { FaChevronLeft, FaChevronRight } from 'react-icons/fa6'
 import MovieFrame from '../MovieFrame'
 import { Link } from 'react-router-dom'
 
-const CarouselMovies = ({ handleContent, showMovieFrame }) => {
+const CarouselMovies = ({ filmes_novos, handleContent, showMovieFrame }) => {
   const [filmes, setFilmes] = React.useState([])
 
   useEffect(() => {
@@ -15,6 +15,12 @@ const CarouselMovies = ({ handleContent, showMovieFrame }) => {
     }
     fetchData()
   }, [])
+
+  useEffect(() => {
+    if (filmes_novos && filmes_novos.length > 0) {
+      setFilmes(filmes_novos)
+    }
+  }, [filmes_novos])
 
   const scrollLeft = () => {
     document.getElementById('carousel').scrollBy({

@@ -95,24 +95,6 @@ module.exports = [
       posts: []
     },
     {
-      filme_id: "40028922",
-      poster: "https://image.tmdb.org/t/p/w600_and_h900_bestv2/2EOfGaRluwJe6OlR21JtbLhWDvt.jpg",
-      nome: "1984",
-      ano: 1984,
-      duracao: "1h33",
-      sinopse: "Placeholder",
-      genero: "Comédia",
-    },
-    {
-      filme_id: "12345678",
-      nome: "Barbie2",
-      ano: 2023, 
-      duracao: "1h54m",
-      genero: "2",
-      sinopse: "Barbie parte para o mundo humano em busca da verdadeira felicidade.",
-      poster: "https://image.tmdb.org/t/p/original/uUbdc9TMwbazp1zCNzGtXoBHhUa.jpg" 
-    },
-    {
       filme_id: "a7b8c9d0-1e2f-11ef-3a4b-5c6d7e8f9a0b",
       poster: "https://img.wonderhowto.com/img/66/40/63426113510199/0/disney-tangled-2010.w1456.jpg",
       nome: "Enrolados",
